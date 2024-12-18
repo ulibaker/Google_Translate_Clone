@@ -11,7 +11,9 @@ function App() {
     fromLanguage, 
     toLanguage, 
     interchangesLanguage,
-    setFromLanguage } = useStore()
+    setFromLanguage,
+    setToLanguage,
+  } = useStore()
 
   return (
     <Container fluid>
@@ -19,7 +21,12 @@ function App() {
       <Row>
         <Col>
           <h4>From:</h4>
-          <LanguageSelector />
+          <LanguageSelector 
+            type='from'
+            value={fromLanguage}
+            onChange={setFromLanguage}
+          />
+          {fromLanguage}
         </Col>
         <Col>
           <Button variant='link' disabled={fromLanguage===AUTO_LANGUAGE} onClick={interchangesLanguage}>
@@ -28,7 +35,12 @@ function App() {
         </Col>
         <Col>
           <h4>To:</h4>
-          <LanguageSelector />
+          <LanguageSelector 
+            type='to'
+            value={toLanguage}
+            onChange={setToLanguage}
+          />
+          {toLanguage}
         </Col>
       </Row>
     </Container>
