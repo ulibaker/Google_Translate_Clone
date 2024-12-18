@@ -3,6 +3,7 @@ import { AUTO_LANGUAGE, SUPPORTED_LANGUAGES } from '../constants'
 import { FromLanguage, Language } from '../types'
 import { type FC } from 'react'
 
+
 type Props =
     | { type: 'from', value: FromLanguage, onChange: (language: FromLanguage) => void }
     | { type: 'to', value: Language, onChange: (language: Language) => void }
