@@ -5,14 +5,20 @@ import { useStore } from './hooks/useStore'
 import { AUTO_LANGUAGE } from './constants'
 import { ArrowIcon } from './components/Icons'
 import { LanguageSelector } from './components/LanguageSelector'
+import { TextArea } from './components/TextArea'
+import { SectionType } from './types.d'
 
 function App() {
   const { 
     fromLanguage, 
     toLanguage, 
+    fromText,
+    result,
     interchangesLanguage,
     setFromLanguage,
     setToLanguage,
+    setFromText,
+    setResult
   } = useStore()
 
   return (
@@ -26,7 +32,12 @@ function App() {
             value={fromLanguage}
             onChange={setFromLanguage}
           />
-          {fromLanguage}
+          <TextArea
+            placeholder='Write something'
+            type={SectionType.From}
+            value={fromText}
+            onChange={setFromText}
+          />
         </Col>
         <Col>
           <Button variant='link' disabled={fromLanguage===AUTO_LANGUAGE} onClick={interchangesLanguage}>
@@ -40,7 +51,12 @@ function App() {
             value={toLanguage}
             onChange={setToLanguage}
           />
-          {toLanguage}
+          <TextArea
+            placeholder='...'
+            type={SectionType.To}
+            value={result}
+            onChange={setResult}
+          />
         </Col>
       </Row>
     </Container>
