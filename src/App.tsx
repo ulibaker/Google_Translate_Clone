@@ -14,6 +14,7 @@ function App() {
     toLanguage, 
     fromText,
     result,
+    loading,
     interchangesLanguage,
     setFromLanguage,
     setToLanguage,
@@ -33,7 +34,6 @@ function App() {
             onChange={setFromLanguage}
           />
           <TextArea
-            placeholder='Write something'
             type={SectionType.From}
             value={fromText}
             onChange={setFromText}
@@ -52,7 +52,7 @@ function App() {
             onChange={setToLanguage}
           />
           <TextArea
-            placeholder='...'
+            loading={loading}
             type={SectionType.To}
             value={result}
             onChange={setResult}
